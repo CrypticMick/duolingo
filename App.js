@@ -15,15 +15,22 @@ export default function App() {
   );
 
   useEffect(() => {
-    console.log("useEffect called");
-    setCurrentQuestion(questions[currentQuestionIndex]);
+    if (currentQuestionIndex >= questions.length) {
+      Alert.alert("You Won!");
+      setCurrentQuestionIndex(0);
+    } else {
+      setCurrentQuestion(questions[currentQuestionIndex]);
+    }
   }, [currentQuestionIndex]);
 
   // check if selected choice is correct
   const onButtonPress = () => {
     if (selected.correct) {
-      Alert.alert("Correct!");
+      // Alert.alert("Correct!");
+      // advance to next question
       setCurrentQuestionIndex(currentQuestionIndex + 1);
+      // resets selected styling for a correct answer
+      setSelected(null);
     } else {
       Alert.alert("Wrong");
     }
