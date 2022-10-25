@@ -4,9 +4,11 @@ import { View, Alert } from "react-native";
 import styles from "./App.styles";
 import ImageMultipleChoiceQuestion from "./src/components/ImageMultipleChoiceQuestion/ImageMultipleChoiceQuestion";
 import OpenEndedQuestion from "./src/components/OpenEndedQuestion/OpenEndedQuestion";
-import questions from "./assets/data/openEndedQuestions";
-// import questions from "./assets/data/imageMultipleChoiceQuestions";
+
 // import question from "./assets/data/oneQuestionWithOption";
+// import questions from "./assets/data/imageMultipleChoiceQuestions";
+// import questions from "./assets/data/openEndedQuestions";
+import questions from "./assets/data/allQuestions";
 
 export default function App() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -34,16 +36,20 @@ export default function App() {
 
   return (
     <View style={styles.root}>
-      {/* <ImageMultipleChoiceQuestion
-        question={currentQuestion}
-        onCorrectAnswer={onCorrectAnswer}
-        onWrongAnswer={onWrongAnswer}
-      /> */}
-      <OpenEndedQuestion
-        question={currentQuestion}
-        onCorrectAnswer={onCorrectAnswer}
-        onWrongAnswer={onWrongAnswer}
-      />
+      {currentQuestion.type === "IMAGE_MULTIPLE_CHOICE" ? (
+        <ImageMultipleChoiceQuestion
+          question={currentQuestion}
+          onCorrectAnswer={onCorrectAnswer}
+          onWrongAnswer={onWrongAnswer}
+        />
+      ) : null}
+      {currentQuestion.type === "OPEN_ENDED" ? (
+        <OpenEndedQuestion
+          question={currentQuestion}
+          onCorrectAnswer={onCorrectAnswer}
+          onWrongAnswer={onWrongAnswer}
+        />
+      ) : null}
     </View>
   );
 }
