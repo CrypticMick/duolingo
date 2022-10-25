@@ -1,14 +1,12 @@
 import { useState, useEffect } from "react";
-import { Text, View, Alert } from "react-native";
-import ImageOption from "./src/components/ImageOption";
-import Button from "./src/components/Button";
+import { View, Alert } from "react-native";
 
 import styles from "./App.styles";
 import questions from "./assets/data/imageMultipleChoiceQuestions";
+import ImageMultipleChoiceQuestion from "./src/components/ImageMultipleChoiceQuestion/ImageMultipleChoiceQuestion";
 // import question from "./assets/data/oneQuestionWithOption";
 
 export default function App() {
-  const [selected, setSelected] = useState(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(
     questions[currentQuestionIndex]
@@ -23,36 +21,22 @@ export default function App() {
     }
   }, [currentQuestionIndex]);
 
-  // check if selected choice is correct
-  const onButtonPress = () => {
-    if (selected.correct) {
-      // Alert.alert("Correct!");
-      // advance to next question
-      setCurrentQuestionIndex(currentQuestionIndex + 1);
-      // resets selected styling for a correct answer
-      setSelected(null);
-    } else {
-      Alert.alert("Wrong");
-    }
+  const onCorrectAnswer = () => {
+    // advance to next question
+    setCurrentQuestionIndex(currentQuestionIndex + 1);
+  };
+
+  const onWrongAnswer = () => {
+    Alert.alert("Wrong, try again");
   };
 
   return (
     <View style={styles.root}>
-      <Text style={styles.title}>{currentQuestion.question}</Text>
-
-      <View style={styles.optionsContainer}>
-        {/* dynamically map values from dummy data array */}
-        {currentQuestion.options.map((option) => (
-          <ImageOption
-            key={option.id}
-            image={option.image}
-            text={option.text}
-            isSelected={selected?.id === option.id}
-            onPress={() => setSelected(option)}
-          />
-        ))}
-      </View>
-      <Button text="Check" onPress={onButtonPress} disabled={!selected} />
+      <ImageMultipleChoiceQuestion
+        question={currentQuestion}
+        onCorrectAnswer={onCorrectAnswer}
+        onWrongAnswer={onWrongAnswer}
+      />
     </View>
   );
 }
