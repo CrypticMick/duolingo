@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 import { View, Alert } from "react-native";
 
 import styles from "./App.styles";
-import questions from "./assets/data/imageMultipleChoiceQuestions";
 import ImageMultipleChoiceQuestion from "./src/components/ImageMultipleChoiceQuestion/ImageMultipleChoiceQuestion";
+import OpenEndedQuestion from "./src/components/OpenEndedQuestion/OpenEndedQuestion";
+import questions from "./assets/data/openEndedQuestions";
+// import questions from "./assets/data/imageMultipleChoiceQuestions";
 // import question from "./assets/data/oneQuestionWithOption";
 
 export default function App() {
@@ -32,7 +34,12 @@ export default function App() {
 
   return (
     <View style={styles.root}>
-      <ImageMultipleChoiceQuestion
+      {/* <ImageMultipleChoiceQuestion
+        question={currentQuestion}
+        onCorrectAnswer={onCorrectAnswer}
+        onWrongAnswer={onWrongAnswer}
+      /> */}
+      <OpenEndedQuestion
         question={currentQuestion}
         onCorrectAnswer={onCorrectAnswer}
         onWrongAnswer={onWrongAnswer}
