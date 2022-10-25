@@ -36,13 +36,13 @@ export default function App() {
 
   return (
     <View style={styles.root}>
-      {currentQuestion.type === "IMAGE_MULTIPLE_CHOICE" ? (
+      {currentQuestion.type === "IMAGE_MULTIPLE_CHOICE" && (
         <ImageMultipleChoiceQuestion
           question={currentQuestion}
           onCorrectAnswer={onCorrectAnswer}
           onWrongAnswer={onWrongAnswer}
         />
-      ) : null}
+      )}
       {currentQuestion.type === "OPEN_ENDED" ? (
         <OpenEndedQuestion
           question={currentQuestion}
