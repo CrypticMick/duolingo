@@ -14,6 +14,8 @@ export default function App() {
     questions[currentQuestionIndex]
   );
 
+  const [lives, setLives] = useState(5);
+
   useEffect(() => {
     if (currentQuestionIndex >= questions.length) {
       Alert.alert("You Won!");
@@ -28,13 +30,31 @@ export default function App() {
     setCurrentQuestionIndex(currentQuestionIndex + 1);
   };
 
+  const restart = () => {
+    setLives(5);
+    setCurrentQuestionIndex(0);
+  };
+
   const onWrongAnswer = () => {
-    Alert.alert("Wrong, try again");
+    if (lives <= 1) {
+      Alert.alert("Game Over", "Keep practicing!", [
+        {
+          text: "Try again",
+          onPress: restart,
+        },
+      ]);
+    } else {
+      Alert.alert("Wrong answer");
+      setLives(lives - 1);
+    }
   };
 
   return (
     <View style={styles.root}>
-      <Header progress={currentQuestionIndex / questions.length} />
+      <Header
+        progress={currentQuestionIndex / questions.length}
+        lives={lives}
+      />
       {currentQuestion.type === "IMAGE_MULTIPLE_CHOICE" && (
         <ImageMultipleChoiceQuestion
           question={currentQuestion}

@@ -38,7 +38,7 @@ const OpenEndedQuestion = ({ question, onCorrectAnswer, onWrongAnswer }) => {
         textAlignVertical="top" // brings text input field to the top on Android
       />
 
-      <Button text="Check" onPress={onButtonPress} disabled={false} />
+      <Button text="Check" onPress={onButtonPress} disabled={!input} />
     </>
   );
 };
