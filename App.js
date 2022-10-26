@@ -4,10 +4,8 @@ import { View, Alert } from "react-native";
 import styles from "./App.styles";
 import ImageMultipleChoiceQuestion from "./src/components/ImageMultipleChoiceQuestion/ImageMultipleChoiceQuestion";
 import OpenEndedQuestion from "./src/components/OpenEndedQuestion/OpenEndedQuestion";
+import Header from "./src/components/Header";
 
-// import question from "./assets/data/oneQuestionWithOption";
-// import questions from "./assets/data/imageMultipleChoiceQuestions";
-// import questions from "./assets/data/openEndedQuestions";
 import questions from "./assets/data/allQuestions";
 
 export default function App() {
@@ -36,6 +34,7 @@ export default function App() {
 
   return (
     <View style={styles.root}>
+      <Header progress={currentQuestionIndex / questions.length} />
       {currentQuestion.type === "IMAGE_MULTIPLE_CHOICE" && (
         <ImageMultipleChoiceQuestion
           question={currentQuestion}
