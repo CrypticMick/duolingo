@@ -3,9 +3,10 @@ import { View, Alert, ActivityIndicator } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import styles from "./App.styles";
-import ImageMultipleChoiceQuestion from "./src/components/ImageMultipleChoiceQuestion/ImageMultipleChoiceQuestion";
-import OpenEndedQuestion from "./src/components/OpenEndedQuestion/OpenEndedQuestion";
+import ImageMultipleChoiceQuestion from "./src/components/ImageMultipleChoiceQuestion";
+import OpenEndedQuestion from "./src/components/OpenEndedQuestion";
 import Header from "./src/components/Header";
+import FillInTheBlank from "./src/components/FillInTheBlank";
 
 import questions from "./assets/data/allQuestions";
 
@@ -99,6 +100,13 @@ export default function App() {
         progress={currentQuestionIndex / questions.length}
         lives={lives}
       />
+      {currentQuestion.type === "FILL_IN_THE_BLANK" && (
+        <FillInTheBlank
+          question={currentQuestion}
+          onCorrectAnswer={onCorrectAnswer}
+          onWrongAnswer={onWrongAnswer}
+        />
+      )}
       {currentQuestion.type === "IMAGE_MULTIPLE_CHOICE" && (
         <ImageMultipleChoiceQuestion
           question={currentQuestion}

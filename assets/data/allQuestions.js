@@ -77,7 +77,7 @@ export default [
     answer: "the woman",
   },
   {
-    id: "q3",
+    id: "q0",
     question: 'Which of these is "the cup"?',
     type: "IMAGE_MULTIPLE_CHOICE",
     options: [
@@ -146,27 +146,30 @@ export default [
       },
     ],
   },
-  // {
-  //   id: "q7",
-  //   type: "FILL_IN_THE_BLANK",
-  //   parts: [
-  //     {
-  //       text: "la",
-  //       isBlank: true,
-  //     },
-  //     {
-  //       text: "nino",
-  //       isBlank: true,
-  //     },
-  //     {
-  //       text: "el",
-  //       isBlank: true,
-  //     },
-  //     {
-  //       text: "nina",
-  //       isBlank: true,
-  //     },
-  //   ],
-  //   options: ["la", "el", "nina", "nino", "ella"],
-  // },
+  {
+    id: "q7",
+    type: "FILL_IN_THE_BLANK",
+    text: "el nino y la ",
+    options: ["mujer", "hombre", "nina", "nino", "ella"],
+    correct: "nina",
+  },
 ];
+
+// parts: [
+//   {
+//     text: "la",
+//     isBlank: true,
+//   },
+//   {
+//     text: "nino",
+//     isBlank: true,
+//   },
+//   {
+//     text: "el",
+//     isBlank: true,
+//   },
+//   {
+//     text: "nina",
+//     isBlank: true,
+//   },
+// ],
