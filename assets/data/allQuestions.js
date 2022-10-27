@@ -149,7 +149,8 @@ export default [
   {
     id: "q7",
     type: "FILL_IN_THE_BLANK",
-    text: "el nino y la ",
+    textPre: "el nino y la ",
+    textPost: "",
     options: ["mujer", "hombre", "nina", "nino", "ella"],
     correct: "nina",
   },

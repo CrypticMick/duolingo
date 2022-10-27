@@ -21,12 +21,13 @@ const FillInTheBlank = ({ question, onCorrectAnswer, onWrongAnswer }) => {
     <>
       <Text style={styles.title}>Complete the sentence</Text>
       <View style={styles.row}>
-        <Text style={styles.text}>{question.text}</Text>
+        <Text style={styles.text}>{question.textPre}</Text>
         <View style={styles.blank}>
           {selected && (
             <WordOption text={selected} onPress={() => setSelected(null)} />
           )}
         </View>
+        <Text style={styles.text}>{question.textPost}</Text>
       </View>
 
       <View style={styles.optionsContainer}>
