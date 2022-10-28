@@ -146,31 +146,35 @@ export default [
       },
     ],
   },
+  // {
+  //   id: "q7",
+  //   type: "FILL_IN_THE_BLANK",
+  //   textPre: "el nino y la ",
+  //   textPost: "",
+  //   options: ["mujer", "hombre", "nina", "nino", "ella"],
+  //   correct: "nina",
+  // },
   {
-    id: "q7",
+    id: "q8",
     type: "FILL_IN_THE_BLANK",
-    textPre: "el nino y la ",
-    textPost: "",
-    options: ["mujer", "hombre", "nina", "nino", "ella"],
-    correct: "nina",
+    parts: [
+      {
+        text: "el",
+        isBlank: true,
+      },
+      {
+        text: "nino",
+        isBlank: false,
+      },
+      {
+        text: "la",
+        isBlank: true,
+      },
+      {
+        text: "nina",
+        isBlank: false,
+      },
+    ],
+    options: ["la", "yo", "el", "ella"],
   },
 ];
-
-// parts: [
-//   {
-//     text: "la",
-//     isBlank: true,
-//   },
-//   {
-//     text: "nino",
-//     isBlank: true,
-//   },
-//   {
-//     text: "el",
-//     isBlank: true,
-//   },
-//   {
-//     text: "nina",
-//     isBlank: true,
-//   },
-// ],

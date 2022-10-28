@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { View, Alert, ActivityIndicator } from "react-native";
+import { Alert, ActivityIndicator, SafeAreaView } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import styles from "./App.styles";
@@ -95,7 +95,7 @@ export default function App() {
   }
 
   return (
-    <View style={styles.root}>
+    <SafeAreaView style={styles.root}>
       <Header
         progress={currentQuestionIndex / questions.length}
         lives={lives}
@@ -121,6 +121,6 @@ export default function App() {
           onWrongAnswer={onWrongAnswer}
         />
       ) : null}
-    </View>
+    </SafeAreaView>
   );
 }
